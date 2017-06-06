@@ -1,0 +1,27 @@
+{
+  "name": "eosjson",
+  "version": "1.0.0",
+  "description": "Information about the EOS blockchain in the JSON file format.",
+  "dependencies": {},
+  "devDependencies": {
+    "camel-case": "^3.0.0",
+    "mocha": "^3.4.2"
+  },
+  "scripts": {
+    "test": "mocha index.test.js **/*.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eosjs/json.git"
+  },
+  "keywords": [
+    "EOS",
+    "Blockchain"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eosjs/json/issues"
+  },
+  "homepage": "https://github.com/eosjs/json#readme"
+}

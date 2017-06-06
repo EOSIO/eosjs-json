@@ -1,0 +1,139 @@
+{
+  "Checksum": "FixedBytes32",
+  "Signature": "FixedBytes65",
+  "PublicKey": "FixedBytes33",
+
+  "AccountName": "FixedString32",
+  "PermissionName": "FixedString16",
+  "MessageType": "FixedString16",
+  "AccountPermissionWeight": "UInt32",
+  "GeneratedTransactionID": "UInt32",
+  "BlockID": "Checksum",
+  "TransactionID": "Checksum",
+
+  "AccountPermission": {
+    "fields": {
+      "account": "AccountName",
+      "permission": "PermissionName"
+    }
+  },
+  "Authority": {
+    "fields": {
+      "threshold": "UInt32",
+      "keys": "KeyPermissionWeight[]",
+      "accounts": "AccountPermissionWeight[]"
+    }
+  },
+  "Block": {
+    "base": "SignedBlockHeader",
+    "fields": {
+      "cycles": "Cycle[]"
+    }
+  },
+  "BlockHeader": {
+    "fields": {
+      "previous": "BlockID",
+      "number": "UInt32",
+      "time": "Time",
+      "producer": "AccountName",
+      "merkle": "Checksum"
+    }
+  },
+  "CreateAccount": {
+    "fields": {
+      "creator": "AccountName",
+      "name": "AccountName",
+      "owner": "Authority",
+      "active": "Authority",
+      "recovery": "Authority"
+    }
+  },
+  "CreateProducer": {
+    "fields": {
+      "account": "AccountName",
+      "key": "PublicKey"
+    }
+  },
+  "Cycle": {
+    "fields": {
+      "threads": "Thread[]",
+      "generated": "GeneratedTransaction?"
+    }
+  },
+  "DeletePermission": {
+    "fields": {
+      "account": "AccountName",
+      "permission": "PermissionName"
+    }
+  },
+  "GeneratedTransaction": {
+    "base": "Transaction",
+    "fields": {
+      "gid": "GeneratedTransactionID"
+    }
+  },
+  "KeyPermissionWeight": {
+    "fields": {
+      "key": "PublicKey",
+      "weight": "UInt16"
+    }
+  },
+  "Message": {
+    "fields": {
+      "from": "AccountName",
+      "to": "AccountName",
+      "cc": "AccountName[]",
+      "type": "MessageType",
+      "data": "Bytes"
+    }
+  },
+  "SignedBlockHeader": {
+    "base": "BlockHeader",
+    "fields": {
+      "signature": "Signature"
+    }
+  },
+  "SignedTransaction": {
+    "base": "Transaction",
+    "fields": {
+      "signatures": "Signature[]"
+    }
+  },
+  "Thread": {
+    "fields": {
+      "generated": "GeneratedTransactionID?",
+      "external": "SignedTransaction?"
+    }
+  },
+  "Transaction": {
+    "fields": {
+      "expiration": "Time",
+      "tapos": "UInt32",
+      "messages": "Message[]",
+      "permissions": "AccountPermission[]"
+    }
+  },
+  "Transfer": {
+    "fields": {
+      "from": "AccountName",
+      "to": "AccountName",
+      "amount": "UInt64",
+      "memo": "String"
+    }
+  },
+  "UpdatePermission": {
+    "fields": {
+      "account": "AccountName",
+      "permission": "PermissionName",
+      "parent": "PermissionName",
+      "authority": "Authority"
+    }
+  },
+  "VoteOnProducer": {
+    "fields": {
+      "account": "AccountName",
+      "producer": "AccountName",
+      "weight": "Int8"
+    }
+  }
+}
