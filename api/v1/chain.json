@@ -30,6 +30,14 @@
     }
   },
 
+  "get_types": {
+    "brief": "Fetch account registered types",
+    "params": {
+      "account_name": "String"
+    },
+    "results": "String[]"
+  },
+
   "push_block": {
     "brief": "Append a block to the chain database.",
     "params": {

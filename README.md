@@ -4,8 +4,6 @@
 
 This repository contains information about the EOS blockchain in the JSON file format.  The JSON format is used to help keep this information parsable and available to other programming languages.
 
-Warning: I'm still force pushing (without versioning).  Make an issue if this could cause a problem.
-
 # API
 
 [./api/v1/chain.json](./api/v1/chain.json)
