@@ -22,7 +22,7 @@ echo '{"block_num_or_id": 1}' | curl http://127.0.0.1:8888/v1/chain/get_block -d
 
 These operations make up the blockchain.  Because these are signed and stored in binary format a serialization and deserialization library is needed.
 
-* [libtx](https://github.com/eosjs/libtx) - JavaScript
+* [fcbuffer](https://github.com/jcalfee/fcbuffer) - JavaScript
 
 ## Environment
 
