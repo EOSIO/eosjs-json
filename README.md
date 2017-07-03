@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/eosjs/json.svg?branch=master)](https://travis-ci.org/eosjs/json)
+[![NPM](https://img.shields.io/npm/v/eosjs-json.svg)](https://www.npmjs.org/package/eosjs-json)
 
 # About
 
