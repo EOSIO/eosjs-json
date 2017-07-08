@@ -1,0 +1,18 @@
+{
+  "Name": "UInt64",
+  "Checksum": "FixedBytes32",
+  "Signature": "FixedBytes65",
+  "PublicKey": "FixedBytes33",
+  "MessageType": "FixedString16",
+  "GeneratedTransactionID": "UInt32",
+  "BlockID": "Checksum",
+  "TransactionID": "Checksum",
+  "AssetSymbol": "UInt64",
+  "ShareType": "Int64",
+  "Asset": {
+    "fields": {
+      "amount": "ShareType",
+      "symbol": "AssetSymbol"
+    }
+  }
+}

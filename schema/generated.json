@@ -1,0 +1,176 @@
+{
+  "AccountName": "Name",
+  "PermissionName": "Name",
+  "FuncName": "Name",
+  "MessageName": "FixedString32",
+  "TypeName": "FixedString32",
+  "NameIndex": "UInt8",
+  "AccountPermission": {
+    "fields": {
+      "account": "AccountName",
+      "permission": "PermissionName"
+    }
+  },
+  "Message": {
+    "fields": {
+      "code": "AccountName",
+      "recipients": "AccountName[]",
+      "authorization": "AccountPermission[]",
+      "type": "FuncName",
+      "data": "Bytes"
+    },
+    "docs": {
+      "code": "the contract defining the primary code to execute for code/type",
+      "recipients": "the other contracts whose code will run handlers for primary/type",
+      "authorization": "the accounts and permission levels provided",
+      "type": "the action to be taken",
+      "data": "opaque data processed by code"
+    }
+  },
+  "AccountPermissionWeight": {
+    "fields": {
+      "permission": "AccountPermission",
+      "weight": "UInt16"
+    }
+  },
+  "Transaction": {
+    "fields": {
+      "refBlockNum": "UInt16",
+      "refBlockPrefix": "UInt32",
+      "expiration": "Time",
+      "scope": "AccountName[]",
+      "messages": "Message[]"
+    },
+    "docs": {
+      "scope": "the data may be accessed while processing this transaction"
+    }
+  },
+  "SignedTransaction": {
+    "base": "Transaction",
+    "fields": {
+      "signatures": "Signature[]",
+      "authorizations": "AccountPermission[]"
+    }
+  },
+  "KeyPermissionWeight": {
+    "fields": {
+      "key": "PublicKey",
+      "weight": "UInt16"
+    }
+  },
+  "Authority": {
+    "fields": {
+      "threshold": "UInt32",
+      "keys": "KeyPermissionWeight[]",
+      "accounts": "AccountPermissionWeight[]"
+    }
+  },
+  "BlockchainConfiguration": {
+    "fields": {
+      "maxBlockSize": "UInt32",
+      "targetBlockSize": "UInt32",
+      "maxStorageSize": "UInt64",
+      "electedPay": "ShareType",
+      "runnerUpPay": "ShareType",
+      "minEosBalance": "ShareType",
+      "maxTrxLifetime": "UInt32"
+    }
+  },
+  "transfer": {
+    "fields": {
+      "from": "AccountName",
+      "to": "AccountName",
+      "amount": "Asset",
+      "memo": "String"
+    },
+    "docs": {
+      "from": "may not be the message.sender if message.sender has delegated authority by from"
+    }
+  },
+  "lock": {
+    "fields": {
+      "from": "AccountName",
+      "to": "AccountName",
+      "amount": "ShareType"
+    }
+  },
+  "unlock": {
+    "fields": {
+      "account": "AccountName",
+      "amount": "ShareType"
+    }
+  },
+  "claim": {
+    "fields": {
+      "account": "AccountName",
+      "amount": "ShareType"
+    }
+  },
+  "newaccount": {
+    "fields": {
+      "creator": "AccountName",
+      "name": "AccountName",
+      "owner": "Authority",
+      "active": "Authority",
+      "recovery": "Authority",
+      "deposit": "Asset"
+    }
+  },
+  "setcode": {
+    "fields": {
+      "account": "AccountName",
+      "vmtype": "UInt8",
+      "vmversion": "UInt8",
+      "code": "Bytes"
+    },
+    "docs": {
+      "account": "the account that is handling the message",
+      "vmtype": "the virtual machine type",
+      "vmversion": "the virtual machine version",
+      "code": "the apply"
+    }
+  },
+  "setproducer": {
+    "fields": {
+      "name": "AccountName",
+      "key": "PublicKey",
+      "configuration": "BlockchainConfiguration"
+    }
+  },
+  "okproducer": {
+    "fields": {
+      "voter": "NameIndex",
+      "producer": "NameIndex",
+      "approve": "Int8"
+    },
+    "docs": {
+      "voter": "The account casting a vote",
+      "producer": "The producer being voted on",
+      "approve": "1 to approve, or 0 to disapprove"
+    }
+  },
+  "setproxy": {
+    "fields": {
+      "stakeholder": "NameIndex",
+      "proxy": "NameIndex"
+    },
+    "docs": {
+      "stakeholder": "The account with stake to be proxied",
+      "proxy": "The account to cast votes with stakeholder's stake weight"
+    }
+  },
+  "UpdatePermission": {
+    "fields": {
+      "account": "AccountName",
+      "permission": "PermissionName",
+      "parent": "PermissionName",
+      "authority": "Authority"
+    }
+  },
+  "DeletePermission": {
+    "fields": {
+      "account": "AccountName",
+      "permission": "PermissionName"
+    }
+  }
+}

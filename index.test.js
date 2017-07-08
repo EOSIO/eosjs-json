@@ -3,7 +3,7 @@
 describe('syntax', function () {
   for (const fn of [
     './api/v1',
-    './schema/operations'
+    './schema'
   ]) {
     it(fn, function () {
       require(fn)
