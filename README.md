@@ -19,12 +19,20 @@ echo '{"block_num_or_id": 1}' | curl http://127.0.0.1:8888/v1/chain/get_block -d
 
 # Operations
 
-[./schema/operations.json](./schema/operations.json)
+[./schema/generated.json](./schema/generated.json)
 
 These operations make up the blockchain.  Because these are signed and stored in binary format a serialization and deserialization library is needed.
 
 * [fcbuffer](https://github.com/jcalfee/fcbuffer) - JavaScript
 
-## Environment
+# Updating Generated Types
+
+```bash
+curl https://raw.githubusercontent.com/EOSIO/eos/master/libraries/types/types.eos > types.eos
+./type_parser.js types.eos > schema/generated.json
+yarn test
+```
+
+# Environment
 
 JSON

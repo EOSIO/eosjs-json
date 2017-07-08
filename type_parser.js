@@ -8,7 +8,7 @@ if(!typesFileName) {
   console.error();
   console.error('Expecting first argument types.eos file name.');
   console.error();
-  console.error('wget https://raw.githubusercontent.com/EOSIO/eos/master/libraries/types/types.eos');
+  console.error('curl https://raw.githubusercontent.com/EOSIO/eos/master/libraries/types/types.eos > types.eos');
   console.error('./type_parser.js types.eos > schema/generated.json')
   console.error();
   console.error('Run unit tests');
