@@ -11,7 +11,7 @@ if(!typesFileName) {
   console.error('wget https://raw.githubusercontent.com/EOSIO/eos/master/libraries/types/types.eos');
   console.error('./type_parser.js types.eos > schema/generated.json')
   console.error();
-  console.error('Link and unit test this new release from fcbuffer');
+  console.error('Run unit tests');
   console.error();
   process.exit(1)
 }
