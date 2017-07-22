@@ -30,6 +30,29 @@
     }
   },
 
+  "get_table_rows_i64": {
+    "brief": "Fetch smart contract data from an account.",
+    "params": {
+      "scope": "Name",
+      "code": "Name",
+      "table": "Name",
+      "json": { "type": "Bool", "default": false},
+      "lower_bound": {"type": "UInt64", "default": "0"},
+      "upper_bound": {"type": "UInt64", "default": "-1"},
+      "limit": {"type": "UInt32", "default": "10"}
+    },
+    "results": {
+      "rows": {
+        "type": "Vector",
+        "doc": "one row per item, either encoded as hex String or JSON object"
+      },
+      "more": {
+        "type": "Bool",
+        "doc": "true if last element"
+      }
+    }
+  },
+
   "get_types": {
     "brief": "Fetch account registered types",
     "params": {
