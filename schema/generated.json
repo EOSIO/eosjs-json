@@ -76,12 +76,37 @@
       "maxTrxLifetime": "UInt32"
     }
   },
+  "TypeDef": {
+    "fields": {
+      "newTypeName": "TypeName",
+      "type": "TypeName"
+    }
+  },
+  "Action": {
+    "fields": {
+      "action": "Name",
+      "type": "TypeName"
+    }
+  },
+  "Table": {
+    "fields": {
+      "table": "Name",
+      "type": "TypeName"
+    }
+  },
+  "Abi": {
+    "fields": {
+      "types": "TypeDef[]",
+      "structs": "Struct[]",
+      "actions": "Action[]",
+      "tables": "Table[]"
+    }
+  },
   "transfer": {
     "fields": {
       "from": "AccountName",
       "to": "AccountName",
-      "amount": "Asset",
-      "memo": "String"
+      "amount": "UInt64"
     },
     "docs": {
       "from": "may not be the message.sender if message.sender has delegated authority by from"
@@ -121,13 +146,15 @@
       "account": "AccountName",
       "vmtype": "UInt8",
       "vmversion": "UInt8",
-      "code": "Bytes"
+      "code": "Bytes",
+      "abi": "Abi"
     },
     "docs": {
       "account": "the account that is handling the message",
       "vmtype": "the virtual machine type",
       "vmversion": "the virtual machine version",
-      "code": "the apply"
+      "code": "the apply",
+      "abi": "the interface description of the code"
     }
   },
   "setproducer": {

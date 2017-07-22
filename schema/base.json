@@ -9,10 +9,24 @@
   "TransactionID": "Checksum",
   "AssetSymbol": "UInt64",
   "ShareType": "Int64",
+  "FieldName": "String",
   "Asset": {
     "fields": {
       "amount": "ShareType",
       "symbol": "AssetSymbol"
+    }
+  },
+  "Struct": {
+    "fields": {
+      "name": "TypeName",
+      "base": "TypeName",
+      "fields": "Field[]"
+    }
+  },
+  "Field": {
+    "fields": {
+      "name": "FieldName",
+      "type": "TypeName"
     }
   }
 }
