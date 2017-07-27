@@ -4,7 +4,6 @@
   "FuncName": "Name",
   "MessageName": "FixedString32",
   "TypeName": "FixedString32",
-  "NameIndex": "UInt8",
   "AccountPermission": {
     "fields": {
       "account": "AccountName",
@@ -15,14 +14,12 @@
     "fields": {
       "code": "AccountName",
       "type": "FuncName",
-      "recipients": "AccountName[]",
       "authorization": "AccountPermission[]",
       "data": "Bytes"
     },
     "docs": {
       "code": "the contract defining the primary code to execute for code/type",
       "type": "the action to be taken",
-      "recipients": "the other contracts whose code will run handlers for primary/type",
       "authorization": "the accounts and permission levels provided",
       "data": "opaque data processed by code"
     }
@@ -166,8 +163,8 @@
   },
   "okproducer": {
     "fields": {
-      "voter": "NameIndex",
-      "producer": "NameIndex",
+      "voter": "AccountName",
+      "producer": "AccountName",
       "approve": "Int8"
     },
     "docs": {
@@ -178,8 +175,8 @@
   },
   "setproxy": {
     "fields": {
-      "stakeholder": "NameIndex",
-      "proxy": "NameIndex"
+      "stakeholder": "AccountName",
+      "proxy": "AccountName"
     },
     "docs": {
       "stakeholder": "The account with stake to be proxied",
