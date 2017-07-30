@@ -14,13 +14,11 @@
     "fields": {
       "code": "AccountName",
       "type": "FuncName",
-      "authorization": "AccountPermission[]",
       "data": "Bytes"
     },
     "docs": {
       "code": "the contract defining the primary code to execute for code/type",
       "type": "the action to be taken",
-      "authorization": "the accounts and permission levels provided",
       "data": "opaque data processed by code"
     }
   },
@@ -47,6 +45,9 @@
     "fields": {
       "signatures": "Signature[]",
       "authorizations": "AccountPermission[]"
+    },
+    "docs": {
+      "authorizations": "The authorizations this transaction bears signatures to satisfy"
     }
   },
   "KeyPermissionWeight": {
