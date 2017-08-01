@@ -30,6 +30,22 @@
     }
   },
 
+  "get_account": {
+    "brief": "Fetch a blockchain account",
+    "params": {
+      "name": "Name"
+    },
+    "results": {
+      "name": "Name",
+      "eos_balance": "UInt64",
+      "staked_balance": "UInt64",
+      "unstaking_balance": "UInt64",
+      "last_unstaking_time": "Time",
+      "producer": "optional<producer_info>",
+      "abi": "optional<Abi>"
+    }
+  },
+
   "get_table_rows_i64": {
     "brief": "Fetch smart contract data from an account.",
     "params": {
