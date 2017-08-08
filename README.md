@@ -28,9 +28,7 @@ These operations make up the blockchain.  Because these are signed and stored in
 # Updating Generated Types
 
 ```bash
-curl https://raw.githubusercontent.com/EOSIO/eos/master/libraries/types/types.eos > types.eos
-./type_parser.js types.eos > schema/generated.json
-yarn test
+./update_types.sh
 ```
 
 # Environment
