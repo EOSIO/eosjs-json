@@ -70,7 +70,7 @@
   },
 
   "abi_json_to_bin": {
-    "brief": "Manually serilize json into binary.  The binayargs is usually stored in Message.data.",
+    "brief": "Manually serialize json into binary.  The binayargs is usually stored in Message.data.",
     "params": {
       "code": "Name",
       "action": "Name",
