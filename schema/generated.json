@@ -14,11 +14,13 @@
     "fields": {
       "code": "AccountName",
       "type": "FuncName",
+      "authorization": "AccountPermission[]",
       "data": "Bytes"
     },
     "docs": {
       "code": "the contract defining the primary code to execute for code/type",
       "type": "the action to be taken",
+      "authorization": "the accounts and permission levels provided",
       "data": "opaque data processed by code"
     }
   },
@@ -43,11 +45,7 @@
   "SignedTransaction": {
     "base": "Transaction",
     "fields": {
-      "signatures": "Signature[]",
-      "authorizations": "AccountPermission[]"
-    },
-    "docs": {
-      "authorizations": "The authorizations this transaction bears signatures to satisfy"
+      "signatures": "Signature[]"
     }
   },
   "KeyPermissionWeight": {
@@ -71,7 +69,8 @@
       "electedPay": "ShareType",
       "runnerUpPay": "ShareType",
       "minEosBalance": "ShareType",
-      "maxTrxLifetime": "UInt32"
+      "maxTrxLifetime": "UInt32",
+      "authDepthLimit": "UInt16"
     }
   },
   "TypeDef": {
@@ -184,7 +183,7 @@
       "proxy": "The account to cast votes with stakeholder's stake weight"
     }
   },
-  "UpdatePermission": {
+  "updateauth": {
     "fields": {
       "account": "AccountName",
       "permission": "PermissionName",
@@ -192,10 +191,34 @@
       "authority": "Authority"
     }
   },
-  "DeletePermission": {
+  "deleteauth": {
     "fields": {
       "account": "AccountName",
       "permission": "PermissionName"
+    }
+  },
+  "linkauth": {
+    "fields": {
+      "account": "AccountName",
+      "code": "AccountName",
+      "type": "FuncName",
+      "requirement": "PermissionName"
+    },
+    "docs": {
+      "account": "The account to require permissions for",
+      "code": "The contract to require permissions to invoke",
+      "requirement": "The permission name to require"
+    }
+  },
+  "unlinkauth": {
+    "fields": {
+      "account": "AccountName",
+      "code": "AccountName",
+      "type": "FuncName"
+    },
+    "docs": {
+      "account": "The account to require permissions for",
+      "code": "The contract to require permissions to invoke"
     }
   }
 }
