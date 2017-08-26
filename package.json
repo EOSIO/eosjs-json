@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/eosjs/json.git"
+    "url": "git+https://github.com/EOSIO/eosjs-json.git"
   },
   "keywords": [
     "EOS",
@@ -22,7 +22,7 @@
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/eosjs/json/issues"
+    "url": "https://github.com/EOSIO/eosjs-json/issues"
   },
-  "homepage": "https://github.com/eosjs/json#readme"
+  "homepage": "https://github.com/EOSIO/eosjs-json#readme"
 }
