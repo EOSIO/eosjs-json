@@ -36,6 +36,7 @@
       "refBlockPrefix": "UInt32",
       "expiration": "Time",
       "scope": "AccountName[]",
+      "readscope": "AccountName[]",
       "messages": "Message[]"
     },
     "docs": {
@@ -88,7 +89,17 @@
   "Table": {
     "fields": {
       "table": "Name",
+      "indextype": "TypeName",
+      "keynames": "TypeName[]",
+      "keytype": "TypeName[]",
       "type": "TypeName"
+    },
+    "docs": {
+      "table": "the name of the table",
+      "indextype": "the kind of index, i64, i128i128, etc",
+      "keynames": "names for the keys defined by keytype",
+      "keytype": "the meaning / type of key parameters, how to convert binary key to json",
+      "type": "the meaning / type of the binary data stored in this table"
     }
   },
   "Abi": {
@@ -103,7 +114,8 @@
     "fields": {
       "from": "AccountName",
       "to": "AccountName",
-      "amount": "UInt64"
+      "amount": "UInt64",
+      "memo": "String"
     },
     "docs": {
       "from": "may not be the message.sender if message.sender has delegated authority by from"
