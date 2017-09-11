@@ -1,4 +1,6 @@
 {
+  "warning": "This format will change: https://github.com/EOSIO/eos/issues/150",
+
   "get_info": {
     "brief": "Return general network information.",
     "params": null,
@@ -119,6 +121,14 @@
       "signed_transaction": "SignedTransaction"
     },
     "results": null
+  },
+
+  "get_required_keys": {
+    "params": {
+      "transaction": "Transaction",
+      "available_keys": "Set[PublicKey]"
+    },
+    "results": "Set[PublicKey]"
   }
 
 }
