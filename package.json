@@ -5,7 +5,7 @@
   "dependencies": {},
   "devDependencies": {
     "camel-case": "^3.0.0",
-    "fcbuffer": "^1.0.5",
+    "fcbuffer": "^1.2.0",
     "mocha": "^3.4.2"
   },
   "scripts": {
