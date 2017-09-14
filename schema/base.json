@@ -20,13 +20,7 @@
     "fields": {
       "name": "TypeName",
       "base": "TypeName",
-      "fields": "Field[]"
-    }
-  },
-  "Field": {
-    "fields": {
-      "name": "FieldName",
-      "type": "TypeName"
+      "fields": "Map<FieldName, TypeName>"
     }
   }
 }
