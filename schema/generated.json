@@ -91,7 +91,7 @@
       "table": "Name",
       "indextype": "TypeName",
       "keynames": "TypeName[]",
-      "keytype": "TypeName[]",
+      "keytypes": "TypeName[]",
       "type": "TypeName"
     },
     "docs": {
