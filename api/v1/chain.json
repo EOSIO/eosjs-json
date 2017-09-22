@@ -1,5 +1,5 @@
 {
-  "warning": "This format will change: https://github.com/EOSIO/eos/issues/150",
+  "warning_chain_json": "Format will change: https://github.com/EOSIO/eos/issues/150",
 
   "get_info": {
     "brief": "Return general network information.",
@@ -43,12 +43,25 @@
       "staked_balance": "UInt64",
       "unstaking_balance": "UInt64",
       "last_unstaking_time": "Time",
-      "producer": "optional<producer_info>",
-      "abi": "optional<Abi>"
+      "producer": "Optional<producer_info>",
+      "abi": "Optional<Abi>"
     }
   },
 
-  "get_table_rows_i64": {
+  "get_code": {
+    "brief": "Fetch smart contract code",
+    "params": {
+      "name": "Name"
+    },
+    "results": {
+      "name": "Name",
+      "wast": "String",
+      "code_hash": "FixedBytes32",
+      "abi": "Optional<Abi>"
+    }
+  },
+
+  "get_table_rows": {
     "brief": "Fetch smart contract data from an account.",
     "params": {
       "scope": "Name",
@@ -99,12 +112,12 @@
     }
   },
 
-  "get_types": {
-    "brief": "Fetch account registered types",
+  "get_required_keys": {
     "params": {
-      "account_name": "String"
+      "transaction": "Transaction",
+      "available_keys": "Set[PublicKey]"
     },
-    "results": "String[]"
+    "results": "Set[PublicKey]"
   },
 
   "push_block": {
@@ -123,12 +136,12 @@
     "results": null
   },
 
-  "get_required_keys": {
+  "push_transactions": {
+    "brief": "Attempts to push transactions into the pending queue.",
     "params": {
-      "transaction": "Transaction",
-      "available_keys": "Set[PublicKey]"
+      "signed_transaction": "SignedTransaction[]"
     },
-    "results": "Set[PublicKey]"
+    "results": null
   }
 
 }
