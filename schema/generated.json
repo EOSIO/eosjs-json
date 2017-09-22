@@ -71,7 +71,11 @@
       "runnerUpPay": "ShareType",
       "minEosBalance": "ShareType",
       "maxTrxLifetime": "UInt32",
-      "authDepthLimit": "UInt16"
+      "authDepthLimit": "UInt16",
+      "maxTrxRuntime": "UInt32",
+      "inlineDepthLimit": "UInt16",
+      "maxInlineMsgSize": "UInt32",
+      "maxGenTrxSize": "UInt32"
     }
   },
   "TypeDef": {
