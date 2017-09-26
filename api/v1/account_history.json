@@ -15,7 +15,7 @@
   "get_transactions": {
     "brief": "Retrieve all transactions with specific account name referenced in their scope.",
     "params": {
-      "account_name": "Name",
+      "account_name": "AccountName",
       "skip_seq": "Optional<UInt32>",
       "num_seq": "Optional<UInt32>"
     },
@@ -31,17 +31,17 @@
       "public_key": "PublicKey"
     },
     "results": {
-      "account_names": "Name[]"
+      "account_names": "AccountName[]"
     }
   },
 
   "get_controlled_accounts": {
     "brief": "Retrieve accounts which are created by the given account.",
     "params": {
-      "controlling_account": "Name"
+      "controlling_account": "AccountName"
     },
     "results": {
-      "controlled_accounts": "Name[]"
+      "controlled_accounts": "AccountName[]"
     }
   }
 }
