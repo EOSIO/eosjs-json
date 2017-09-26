@@ -1,6 +1,6 @@
 {
   "name": "eosjs-json",
-  "version": "1.3.1",
+  "version": "1.4.0",
   "description": "Information about the EOS blockchain in the JSON file format.",
   "dependencies": {},
   "devDependencies": {
