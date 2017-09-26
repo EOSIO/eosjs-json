@@ -1,6 +1,4 @@
 {
-  "warning_chain_json": "Format will change: https://github.com/EOSIO/eos/issues/150",
-
   "get_info": {
     "brief": "Return general network information.",
     "params": null,
