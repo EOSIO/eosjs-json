@@ -102,7 +102,7 @@
       "table": "the name of the table",
       "indextype": "the kind of index, i64, i128i128, etc",
       "keynames": "names for the keys defined by keytype",
-      "keytype": "the meaning / type of key parameters, how to convert binary key to json",
+      "keytypes": "the meaning / type of key parameters, how to convert binary key to json",
       "type": "the meaning / type of the binary data stored in this table"
     }
   },
