@@ -1,26 +1,23 @@
 {
-  "Name": "UInt64",
-  "Checksum": "FixedBytes32",
-  "Signature": "FixedBytes65",
-  "PublicKey": "FixedBytes33",
-  "MessageType": "FixedString16",
-  "GeneratedTransactionID": "UInt32",
-  "BlockID": "Checksum",
-  "TransactionID": "Checksum",
-  "AssetSymbol": "UInt64",
-  "ShareType": "Int64",
-  "FieldName": "String",
-  "Asset": {
+  "name": "uint64",
+  "checksum": "fixed_bytes32",
+  "signature": "fixed_bytes65",
+  "public_key": "fixed_bytes33",
+  "message_type": "fixed_string16",
+  "asset_symbol": "uint64",
+  "share_type": "int64",
+  "field_name": "string",
+  "asset": {
     "fields": {
-      "amount": "ShareType",
-      "symbol": "AssetSymbol"
+      "amount": "share_type",
+      "symbol": "asset_symbol"
     }
   },
-  "Struct": {
+  "struct_t": {
     "fields": {
-      "name": "TypeName",
-      "base": "TypeName",
-      "fields": "Map<FieldName, TypeName>"
+      "name": "type_name",
+      "base": "type_name",
+      "fields": "map<field_name, type_name>"
     }
   }
 }

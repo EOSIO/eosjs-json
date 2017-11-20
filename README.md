@@ -9,7 +9,7 @@ This repository contains information about the EOS blockchain in the JSON file f
 
 [./api/v1/chain.json](./api/v1/chain.json)
 
-Build and run [eosd](https://github.com/eosio/eos) or direct requests to a public testnet or production node.
+Run [eosd](https://github.com/eosio/eos) or direct requests to a public node.
 
 Usage:
 ```bash
@@ -21,7 +21,8 @@ echo '{"block_num_or_id": 1}' | curl http://127.0.0.1:8888/v1/chain/get_block -d
 
 [./schema/generated.json](./schema/generated.json)
 
-These operations make up the blockchain.  Because these are signed and stored in binary format a serialization and deserialization library is needed.
+These operations update the blockchain.  Because these are signed and stored in
+binary format a serialization and deserialization library is needed.
 
 * [fcbuffer](https://github.com/EOSIO/eosjs-fcbuffer) - JavaScript
 

@@ -2,10 +2,10 @@
   "get_transaction": {
     "brief": "Retrieve a transaction from the blockchain.",
     "params": {
-      "transaction_id": "FixedBytes32"
+      "transaction_id": "fixed_bytes32"
     },
     "results": {
-      "transaction_id": "FixedBytes32",
+      "transaction_id": "fixed_bytes32",
       "transaction": "Transaction"
     }
   },
@@ -13,33 +13,33 @@
   "get_transactions": {
     "brief": "Retrieve all transactions with specific account name referenced in their scope.",
     "params": {
-      "account_name": "AccountName",
-      "skip_seq": "Optional<UInt32>",
-      "num_seq": "Optional<UInt32>"
+      "account_name": "account_name",
+      "skip_seq": "optional<uint32>",
+      "num_seq": "optional<uint32>"
     },
     "results": {
-      "transactions": "OrderedTransaction[]",
-      "time_limit_exceeded_error": "Optional<Bool>"
+      "transactions": "vector<ordered_transaction_results>",
+      "time_limit_exceeded_error": "optional<bool>"
     }
   },
 
   "get_key_accounts": {
     "brief": "Retrieve accounts associated with a public key.",
     "params": {
-      "public_key": "PublicKey"
+      "public_key": "public_key"
     },
     "results": {
-      "account_names": "AccountName[]"
+      "account_names": "vector[name]"
     }
   },
 
   "get_controlled_accounts": {
     "brief": "Retrieve accounts which are created by the given account.",
     "params": {
-      "controlling_account": "AccountName"
+      "controlling_account": "name"
     },
     "results": {
-      "controlled_accounts": "AccountName[]"
+      "controlled_accounts": "vector[name]"
     }
   }
 }
