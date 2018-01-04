@@ -1,4 +1,4 @@
 module.exports = {
-  chain: require('./chain'),
-  account_history: require('./account_history')
+  chain: require('./chain.json'),
+  account_history: require('./account_history.json')
 }
