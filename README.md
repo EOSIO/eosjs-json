@@ -26,12 +26,6 @@ binary format a serialization and deserialization library is needed.
 
 * [fcbuffer](https://github.com/EOSIO/eosjs-fcbuffer) - JavaScript
 
-# Updating Generated Types
-
-```bash
-./update_types.sh
-```
-
 # Environment
 
 JSON
