@@ -1,55 +1,58 @@
 {
   "account_name": "name",
   "permission_name": "name",
-  "func_name": "name",
-  "message_name": "fixed_string32",
+  "field_name": "fixed_string16",
   "type_name": "fixed_string32",
-  "account_permission": {
+  "table_name": "name",
+  "action_name": "name",
+  "permission_level": {
     "fields": {
-      "account": "account_name",
+      "actor": "account_name",
       "permission": "permission_name"
     }
   },
-  "message": {
+  "action": {
     "fields": {
-      "code": "account_name",
-      "type": "func_name",
-      "authorization": "account_permission[]",
+      "account": "account_name",
+      "name": "action_name",
+      "authorization": "permission_level[]",
       "data": "bytes"
     },
     "docs": {
-      "code": "the contract defining the primary code to execute for code/type",
-      "type": "the action to be taken",
-      "authorization": "the accounts and permission levels provided",
-      "data": "opaque data processed by code"
+      "account": "the account containing the deployed contract",
+      "name": "the action to be called (from contract's ABI actions)",
+      "authorization": "the accounts and permission levels (must have coresponding signatures)",
+      "data": "serilized data processed by code (ABI compatible)"
     }
   },
-  "account_permission_weight": {
+  "permission_level_weight": {
     "fields": {
-      "permission": "account_permission",
+      "permission": "permission_level",
       "weight": "uint16"
     }
   },
   "transaction": {
     "fields": {
-      "ref_block_num": "uint16",
-      "ref_block_prefix": "uint32",
       "expiration": "time",
-      "scope": "account_name[]",
-      "read_scope": "account_name[]",
-      "messages": "message[]"
+      "region": "uint16",
+      "ref_block_num": "uint16",
+      "ref_block_prefix": "uint64",
+      "packed_bandwidth_words": "uint16",
+      "context_free_cpu_bandwidth": "uint16",
+      "context_free_actions": "action[]",
+      "actions": "action[]"
     },
     "docs": {
-      "scope": "the data may be accessed while processing this transaction"
     }
   },
   "signed_transaction": {
     "base": "transaction",
     "fields": {
-      "signatures": "signature[]"
+      "signatures": "signature[]",
+      "context_free_data": "bytes[]"
     }
   },
-  "key_permission_weight": {
+  "key_weight": {
     "fields": {
       "key": "public_key",
       "weight": "uint16"
@@ -58,28 +61,8 @@
   "authority": {
     "fields": {
       "threshold": "uint32",
-      "keys": "key_permission_weight[]",
-      "accounts": "account_permission_weight[]"
-    }
-  },
-  "blockchain_configuration": {
-    "fields": {
-      "max_blk_size": "uint32",
-      "target_blk_size": "uint32",
-      "max_storage_size": "uint64",
-      "elected_pay": "share_type",
-      "runner_up_pay": "share_type",
-      "min_eos_balance": "share_type",
-      "max_trx_lifetime": "uint32",
-      "auth_depth_limit": "uint16",
-      "max_trx_runtime": "uint32",
-      "in_depth_limit": "uint16",
-      "max_in_msg_size": "uint32",
-      "max_gen_trx_size": "uint32"
-    },
-    "docs": {
-      "in_depth_limit": "inline depth limit",
-      "max_in_msg_size": "max inline message size"
+      "accounts": "permission_level_weight[]",
+      "keys": "key_weight[]"
     }
   },
   "type_def": {
@@ -88,72 +71,52 @@
       "type": "type_name"
     }
   },
-  "action": {
+  "field_def": {
     "fields": {
-      "action_name": "name",
+      "name": "field_name",
       "type": "type_name"
     }
   },
-  "table": {
+  "struct_def": {
     "fields": {
-      "table_name": "name",
+      "name": "type_name",
+      "base": "type_name",
+      "fields": "field_def[]"
+    }
+  },
+  "action_def": {
+    "fields": {
+      "name": "action_name",
+      "type": "type_name"
+    }
+  },
+  "table_def": {
+    "fields": {
+      "name": "table_name",
       "index_type": "type_name",
       "key_names": "field_name[]",
       "key_types": "type_name[]",
       "type": "type_name"
     },
     "docs": {
-      "table_name": "the name of the table",
+      "name": "the name of the table",
       "index_type": "the kind of index, i64, i128i128, etc",
       "key_names": "names for the keys defined by keytype",
       "key_types": "the meaning / type of key parameters, how to convert binary key to json",
       "type": "the meaning / type of the binary data stored in this table"
     }
   },
-  "abi": {
+  "abi_def": {
     "fields": {
       "types": "type_def[]",
-      "structs": "struct_t[]",
-      "actions": "action[]",
-      "tables": "table[]"
+      "structs": "struct_def[]",
+      "actions": "action_def[]",
+      "tables": "table_def[]"
     }
   },
-  "transfer": {
-    "fields": {
-      "from": "account_name",
-      "to": "account_name",
-      "amount": "uint64",
-      "memo": "string"
-    },
-    "docs": {
-      "from": "may not be the message.sender if message.sender has delegated authority by from"
-    }
-  },
-  "nonce": {
-    "fields": {
-      "value": "string"
-    }
-  },
-  "lock": {
-    "fields": {
-      "from": "account_name",
-      "to": "account_name",
-      "amount": "share_type"
-    }
-  },
-  "unlock": {
-    "fields": {
-      "account": "account_name",
-      "amount": "share_type"
-    }
-  },
-  "claim": {
-    "fields": {
-      "account": "account_name",
-      "amount": "share_type"
-    }
-  },
+
   "newaccount": {
+    "type": "action",
     "fields": {
       "creator": "account_name",
       "name": "account_name",
@@ -164,69 +127,54 @@
     }
   },
   "setcode": {
+    "type": "action",
     "fields": {
       "account": "account_name",
-      "vm_type": "uint8",
-      "vm_version": "uint8",
-      "code": "bytes",
-      "code_abi": "abi"
+      "vmtype": "uint8",
+      "vmversion": "uint8",
+      "code": "bytes"
     },
     "docs": {
       "account": "the account that is handling the message",
-      "vm_type": "the virtual machine type",
-      "vm_version": "the virtual machine version",
+      "vmtype": "the virtual machine type",
+      "vmversion": "the virtual machine version",
       "code": "the apply",
       "code_abi": "the interface description of the code"
     }
   },
-  "setproducer": {
+  "setabi": {
+    "type": "action",
     "fields": {
-      "name": "account_name",
-      "key": "public_key",
-      "configuration": "blockchain_configuration"
-    }
-  },
-  "okproducer": {
-    "fields": {
-      "voter": "account_name",
-      "producer": "account_name",
-      "approve": "int8"
+      "account": "account_name",
+      "abi": "abi_def"
     },
     "docs": {
-      "voter": "The account casting a vote",
-      "producer": "The producer being voted on",
-      "approve": "1 to approve, or 0 to disapprove"
-    }
-  },
-  "setproxy": {
-    "fields": {
-      "stakeholder": "account_name",
-      "proxy": "account_name"
-    },
-    "docs": {
-      "stakeholder": "The account with stake to be proxied",
-      "proxy": "The account to cast votes with stakeholder's stake weight"
+      "account": "account that is handling the message",
+      "abi": "Application Binary Interface"
     }
   },
   "updateauth": {
+    "type": "action",
     "fields": {
       "account": "account_name",
       "permission": "permission_name",
       "parent": "permission_name",
-      "new_authority": "authority"
+      "data": "authority"
     }
   },
   "deleteauth": {
+    "type": "action",
     "fields": {
       "account": "account_name",
       "permission": "permission_name"
     }
   },
   "linkauth": {
+    "type": "action",
     "fields": {
       "account": "account_name",
       "code": "account_name",
-      "type": "func_name",
+      "type": "action_name",
       "requirement": "permission_name"
     },
     "docs": {
@@ -236,14 +184,72 @@
     }
   },
   "unlinkauth": {
+    "type": "action",
     "fields": {
       "account": "account_name",
       "code": "account_name",
-      "type": "func_name"
+      "type": "action_name"
     },
     "docs": {
       "account": "The account to require permissions for",
       "code": "The contract to require permissions to invoke"
+    }
+  },
+  "postrecovery": {
+    "type": "action",
+    "fields": {
+      "account": "account_name",
+      "data": "authority",
+      "memo": "string"
+    }
+  },
+  "passrecovery": {
+    "type": "action",
+    "fields": {
+      "account": "account_name"
+    }
+  },
+  "vetorecovery": {
+    "type": "action",
+    "fields": {
+      "account": "account_name"
+    }
+  },
+
+  "transfer": {
+    "type": "action",
+    "fields": {
+      "from": "account_name",
+      "to": "account_name",
+      "quantity": "asset",
+      "memo": "string"
+    }
+  },
+  "issue": {
+    "type": "action",
+    "fields": {
+      "to": "account_name",
+      "quantity": "asset"
+    }
+  },
+  "nonce": {
+    "type": "action",
+    "fields": {
+      "value": "string"
+    }
+  },
+  "regproducer": {
+    "type": "action",
+    "fields": {
+      "producer": "account_name",
+      "producer_key": "bytes"
+    }
+  },
+  "stakevote": {
+    "type": "action",
+    "fields": {
+      "voter": "account_name",
+      "amount": "asset"
     }
   }
 }

@@ -12,12 +12,5 @@
       "amount": "share_type",
       "symbol": "asset_symbol"
     }
-  },
-  "struct_t": {
-    "fields": {
-      "name": "type_name",
-      "base": "type_name",
-      "fields": "map<field_name, type_name>"
-    }
   }
 }

@@ -11,7 +11,7 @@
   },
 
   "get_transactions": {
-    "brief": "Retrieve all transactions with specific account name referenced in their scope.",
+    "brief": "Retrieve all transactions with specific account name.",
     "params": {
       "account_name": "account_name",
       "skip_seq": "optional<uint32>",

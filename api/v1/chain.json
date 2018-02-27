@@ -60,7 +60,7 @@
       "account_name": "name",
       "wast": "string",
       "code_hash": "fixed_bytes32",
-      "abi": "optional<abi>"
+      "abi": "optional<abi_def>"
     }
   },
 
@@ -68,10 +68,10 @@
     "brief": "Fetch smart contract data from an account.",
     "params": {
       "json": { "type": "bool", "default": false},
-      "table_key": "string",
-      "scope": "name",
       "code": "name",
+      "scope": "name",
       "table": "name",
+      "table_key": "string",
       "lower_bound": {"type": "uint64", "default": "0"},
       "upper_bound": {"type": "uint64", "default": "-1"},
       "limit": {"type": "uint32", "default": "10"}
