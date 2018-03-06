@@ -1,4 +1,21 @@
 {
+  "get_currency_balance": {
+    "params": {
+      "code": "name",
+      "account": "name",
+      "symbol": "optional<string>"
+    },
+    "results": "asset[]"
+  },
+  "get_currency_stats": {
+    "params": {
+      "code": "name",
+      "symbol": "optional<string>"
+    },
+    "results": {
+      "supply": "asset"
+    }
+  },
   "get_info": {
     "brief": "Return general network information.",
     "params": null,

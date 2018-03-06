@@ -36,13 +36,14 @@
       "expiration": "time",
       "region": "uint16",
       "ref_block_num": "uint16",
-      "ref_block_prefix": "uint64",
+      "ref_block_prefix": "uint32",
       "packed_bandwidth_words": "uint16",
       "context_free_cpu_bandwidth": "uint16",
       "context_free_actions": "action[]",
       "actions": "action[]"
     },
     "docs": {
+      "packed_bandwidth_words": "number of 8 byte words this transaction can compress into"
     }
   },
   "signed_transaction": {
