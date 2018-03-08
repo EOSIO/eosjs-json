@@ -141,8 +141,7 @@
       "name": "account_name",
       "owner": "authority",
       "active": "authority",
-      "recovery": "authority",
-      "deposit": "asset"
+      "recovery": "authority"
     }
   },
   "setcode": {
