@@ -1,10 +1,14 @@
 {
   "account_name": "name",
   "permission_name": "name",
-  "field_name": "fixed_string16",
-  "type_name": "fixed_string32",
+  "field_name": "string",
+  "type_name": "string",
   "table_name": "name",
   "action_name": "name",
+  "context_free_type": "bytes",
+  "weight_type": "uint16",
+  "fields": "field[]",
+  "time_point_sec": "time",
   "permission_level": {
     "fields": {
       "actor": "account_name",
@@ -28,17 +32,22 @@
   "permission_level_weight": {
     "fields": {
       "permission": "permission_level",
-      "weight": "uint16"
+      "weight": "weight_type"
     }
   },
-  "transaction": {
+  "transaction_header": {
     "fields": {
-      "expiration": "time",
+      "expiration": "time_point_sec",
       "region": "uint16",
       "ref_block_num": "uint16",
       "ref_block_prefix": "uint32",
       "packed_bandwidth_words": "uint16",
-      "context_free_cpu_bandwidth": "uint16",
+      "context_free_cpu_bandwidth": "uint16"
+    }
+  },
+  "transaction": {
+    "base": "transaction_header",
+    "fields": {
       "context_free_actions": "action[]",
       "actions": "action[]"
     },
@@ -56,14 +65,14 @@
   "key_weight": {
     "fields": {
       "key": "public_key",
-      "weight": "uint16"
+      "weight": "weight_type"
     }
   },
   "authority": {
     "fields": {
       "threshold": "uint32",
-      "accounts": "permission_level_weight[]",
-      "keys": "key_weight[]"
+      "keys": "key_weight[]",
+      "accounts": "permission_level_weight[]"
     }
   },
   "chain_config": {
@@ -90,7 +99,7 @@
       "type": "type_name"
     }
   },
-  "field_def": {
+  "field": {
     "fields": {
       "name": "field_name",
       "type": "type_name"
@@ -100,7 +109,7 @@
     "fields": {
       "name": "type_name",
       "base": "type_name",
-      "fields": "field_def[]"
+      "fields": "fields"
     }
   },
   "action_def": {
