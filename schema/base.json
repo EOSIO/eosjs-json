@@ -1,5 +1,6 @@
 {
   "name": "uint64",
+  "account_name": "uint64",
   "checksum160": "fixed_bytes20",
   "checksum256": "fixed_bytes32",
   "checksum512": "fixed_bytes64",

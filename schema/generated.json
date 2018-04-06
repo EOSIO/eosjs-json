@@ -9,6 +9,18 @@
   "weight_type": "uint16",
   "fields": "field[]",
   "time_point_sec": "time",
+  "producer_key": {
+    "fields": {
+      "producer_name": "account_name",
+      "block_signing_key": "public_key"
+    }
+  },
+  "producer_schedule": {
+    "fields": {
+      "version": "uint32",
+      "producers": "producer_key[]"
+    }
+  },
   "permission_level": {
     "fields": {
       "actor": "account_name",
