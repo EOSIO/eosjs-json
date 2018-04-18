@@ -1,11 +1,11 @@
 {
   "name": "eosjs-json",
-  "version": "3.0.2",
+  "version": "4.0.0",
   "description": "Information about the EOS blockchain in the JSON file format.",
   "dependencies": {},
   "devDependencies": {
     "camel-case": "^3.0.0",
-    "fcbuffer": "^2.1.0",
+    "fcbuffer": "^2.1.5",
     "mocha": "^3.4.2"
   },
   "scripts": {
