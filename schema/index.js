@@ -1,4 +1,4 @@
-const base = require('./base.json')
-const generated = require('./generated.json')
+const chainTypes = require('./chain_types.json')
+const eosio = require('./eosio.json')
 
-module.exports = Object.assign({}, base, generated)
+module.exports = Object.assign({}, chainTypes, eosio)

@@ -1,3 +1,4 @@
 node_modules
 npm-debug.log
 types.eos
+bin/eosio.*

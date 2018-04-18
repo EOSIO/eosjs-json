@@ -1,0 +1,83 @@
+{
+  "name": "uint64",
+  "checksum160": "fixed_bytes20",
+  "checksum256": "fixed_bytes32",
+  "checksum512": "fixed_bytes64",
+  "signature": "fixed_bytes65",
+  "public_key": "fixed_bytes33",
+  "message_type": "fixed_string16",
+  "symbol": "uint64",
+  "field_name": "string",
+  "asset": {
+    "fields": {
+      "amount": "share_type",
+      "symbol": "symbol"
+    }
+  },
+  "account_name": "name",
+  "permission_name": "name",
+  "field_name": "string",
+  "type_name": "string",
+  "token_name": "name",
+  "table_name": "name",
+  "scope_name": "name",
+  "action_name": "name",
+  "context_free_type": "bytes",
+  "fields": "field_def[]",
+  "time_point_sec": "time",
+
+  "block_id_type": "fixed_bytes32",
+  "checksum_type": "fixed_bytes32",
+  "checksum256_type": "fixed_bytes32",
+  "checksum512_type": "fixed_bytes64",
+  "checksum160_type": "fixed_bytes20",
+  "weight_type": "uint16",
+  "block_num_type": "uint32",
+  "share_type": "int64",
+
+  "transaction_id_type": "checksum_type",
+  "digest_type": "checksum_type",
+
+  "producer_key": {
+    "fields": {
+      "producer_name": "account_name",
+      "block_signing_key": "public_key"
+    }
+  },
+  "producer_schedule": {
+    "fields": {
+      "version": "uint32",
+      "producers": "producer_key[]"
+    }
+  },
+  "permission_level": {
+    "fields": {
+      "actor": "account_name",
+      "permission": "permission_name"
+    }
+  },
+  "chain_config": {
+    "fields": {
+      "target_block_size": "uint32",
+      "max_block_size": "uint32",
+      "target_block_acts_per_scope": "uint32",
+      "max_block_acts_per_scope": "uint32",
+      "target_block_acts": "uint32",
+      "max_block_acts": "uint32",
+      "real_threads": "uint64",
+      "max_storage_size": "uint64",
+      "max_transaction_lifetime": "uint32",
+      "max_authority_depth": "uint16",
+      "max_transaction_exec_time": "uint32",
+      "max_inline_depth": "uint16",
+      "max_inline_action_size": "uint32",
+      "max_generated_transaction_size": "uint32"
+    }
+  },
+  "field_def": {
+    "fields": {
+      "name": "field_name",
+      "type": "type_name"
+    }
+  }
+}
