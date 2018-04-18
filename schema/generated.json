@@ -3,12 +3,26 @@
   "permission_name": "name",
   "field_name": "string",
   "type_name": "string",
+  "token_name": "name",
   "table_name": "name",
+  "scope_name": "name",
   "action_name": "name",
   "context_free_type": "bytes",
-  "weight_type": "uint16",
-  "fields": "field[]",
+  "fields": "field_def[]",
   "time_point_sec": "time",
+
+  "block_id_type": "fixed_bytes32",
+  "checksum_type": "fixed_bytes32",
+  "checksum256_type": "fixed_bytes32",
+  "checksum512_type": "fixed_bytes64",
+  "checksum160_type": "fixed_bytes20",
+  "weight_type": "uint16",
+  "block_num_type": "uint32",
+  "share_type": "int64",
+
+  "transaction_id_type": "checksum_type",
+  "digest_type": "checksum_type",
+
   "producer_key": {
     "fields": {
       "producer_name": "account_name",
@@ -53,9 +67,9 @@
       "region": "uint16",
       "ref_block_num": "uint16",
       "ref_block_prefix": "uint32",
-      "max_net_usage_words": "unsigned_int",
-      "max_kcpu_usage": "unsigned_int",
-      "delay_sec": "unsigned_int"
+      "max_net_usage_words": "varuint32",
+      "max_kcpu_usage": "varuint32",
+      "delay_sec": "varuint32"
     }
   },
   "transaction": {
@@ -111,7 +125,7 @@
       "type": "type_name"
     }
   },
-  "field": {
+  "field_def": {
     "fields": {
       "name": "field_name",
       "type": "type_name"
@@ -121,14 +135,14 @@
     "fields": {
       "name": "type_name",
       "base": "type_name",
-      "fields": "fields"
+      "fields": "field_def[]"
     }
   },
   "action_def": {
     "fields": {
       "name": "action_name",
       "type": "type_name",
-      "ricardian_contract": "string?"
+      "ricardian_contract": "string"
     }
   },
   "table_def": {
@@ -147,6 +161,12 @@
       "type": "the meaning / type of the binary data stored in this table"
     }
   },
+  "clause_pair": {
+    "fields": {
+      "id": "string",
+      "body": "string"
+    }
+  },
   "abi_def": {
     "fields": {
       "types": "type_def[]",
@@ -154,12 +174,6 @@
       "actions": "action_def[]",
       "tables": "table_def[]",
       "clauses": "clause_pair[]"
-    }
-  },
-  "clause_pair": {
-    "fields": {
-      "id": "string",
-      "body": "string"
     }
   },
 
@@ -206,7 +220,8 @@
       "account": "account_name",
       "permission": "permission_name",
       "parent": "permission_name",
-      "data": "authority"
+      "data": "authority",
+      "delay": "uint32"
     }
   },
   "deleteauth": {
@@ -260,6 +275,12 @@
     "type": "action",
     "fields": {
       "account": "account_name"
+    }
+  },
+  "canceldelay": {
+    "type": "action",
+    "fields": {
+      "trx_id": "transaction_id_type"
     }
   },
 
