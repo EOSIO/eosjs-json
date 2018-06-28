@@ -2,9 +2,9 @@
 
 const fs = require('fs')
 
-console.log('reading ./eosio.abi')
+console.log('reading ./eosio.system.abi')
 
-let abi = JSON.parse(fs.readFileSync('eosio.abi', 'utf8'));
+let abi = JSON.parse(fs.readFileSync('eosio.system.abi', 'utf8'));
 
 let actions = {};
 for ({ name, type } of abi.actions)
